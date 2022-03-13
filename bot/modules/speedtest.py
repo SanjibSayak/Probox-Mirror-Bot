@@ -32,7 +32,7 @@ def speedtest(update, context):
 
 
 def speed_convert(size):
-    """𝐇𝐢 𝐡𝐮𝐦𝐚𝐧, 𝐲𝐨𝐮 𝐜𝐚𝐧'𝐭 𝐫𝐞𝐚𝐝 𝐛𝐲𝐭𝐞𝐬?"""
+    """Hi human, you can't read bytes?"""
     power = 2 ** 10
     zero = 0
     units = {0: "", 1: "Kb/s", 2: "MB/s", 3: "Gb/s", 4: "Tb/s"}
