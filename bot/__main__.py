@@ -40,39 +40,40 @@ def stats(update, context):
     mem_t = get_readable_file_size(memory.total)
     mem_a = get_readable_file_size(memory.available)
     mem_u = get_readable_file_size(memory.used)
-    stats = f'<b>Bot Uptime:</b> {currentTime}\n\n'\
-            f'<b>Total Disk Space:</b> {total}\n'\
-            f'<b>Used:</b> {used} | <b>Free:</b> {free}\n\n'\
-            f'<b>Upload:</b> {sent}\n'\
-            f'<b>Download:</b> {recv}\n\n'\
-            f'<b>CPU:</b> {cpuUsage}%\n'\
-            f'<b>RAM:</b> {mem_p}%\n'\
-            f'<b>DISK:</b> {disk}%\n\n'\
-            f'<b>Physical Cores:</b> {p_core}\n'\
-            f'<b>Total Cores:</b> {t_core}\n\n'\
-            f'<b>SWAP:</b> {swap_t} | <b>Used:</b> {swap_p}%\n'\
-            f'<b>Memory Total:</b> {mem_t}\n'\
-            f'<b>Memory Free:</b> {mem_a}\n'\
-            f'<b>Memory Used:</b> {mem_u}\n'
+    stats = f'<b>╭──《🌐 𝐁ᴏᴛ 𝐒ᴛᴀᴛɪ𝐬ᴛɪᴄ𝐬 🌐》</b>\n' \
+            f'<b>│</b>\n' \
+            f'<b>├  ⏰ Bot Uptime : {currentTime}</b>\n' \
+            f'<b>├  💾 Total Disk Space : {total}</b>\n' \
+            f'<b>├  📀 Total Used Space : {used}</b>\n' \
+            f'<b>├  💿 Total Free Space : {free}</b>\n' \
+            f'<b>├  🔼 Total Upload : {sent}</b>\n' \
+            f'<b>├  🔽 Total Download : {recv}</b>\n' \
+            f'<b>├  🖥️ CPU : {cpuUsage}%</b>\n' \
+            f'<b>├  🎮 RAM : </b> {mem_p}%\n'\
+            f'<b>├  💽 DISK : {disk}%</b>\n' \
+            f'<b>│</b>\n' \
+            f'<b>╰──《 ☣️ @Tanvir42 ☣️ 》</b>'
     sendMessage(stats, context.bot, update.message)
 
 
 def start(update, context):
     buttons = ButtonMaker()
-    buttons.buildbutton("Repo", "https://www.github.com/anasty17/mirror-leech-telegram-bot")
-    buttons.buildbutton("Report Group", "https://t.me/+PRRzqHd31XY3ZWZk")
+    buttons.buildbutton("😊 𝐀𝐛𝐨𝐮𝐭 𝐌𝐞", "https://t.me/Tanvir42")
+    buttons.buildbutton("👤 𝐆𝐫𝐨𝐮𝐩", "https://t.me/+Tanvir42")
     reply_markup = InlineKeyboardMarkup(buttons.build_menu(2))
     if CustomFilters.authorized_user(update) or CustomFilters.authorized_chat(update):
         start_string = f'''
-This bot can mirror all your links to Google Drive!
-Type /{BotCommands.HelpCommand} to get a list of available commands
+𝗛𝗲𝗹𝗹𝗼 👋,
+
+𝐈 𝐂𝐚𝐧 𝐌𝐢𝐫𝐫𝐨𝐫 𝐀𝐥𝐥 𝐘𝐨𝐮𝐫 𝐋𝐢𝐧𝐤𝐬 𝐓𝐨 𝐆𝐨𝐨𝐠𝐥𝐞 𝐃𝐫𝐢𝐯𝐞! 𝐈 𝐇𝐚𝐯𝐞 𝐀 𝐋𝐨𝐭'𝐬 𝐨𝐟 𝐂𝐨𝐨𝐥 𝐅𝐞𝐚𝐭𝐮𝐫𝐞𝐬 𝐓𝐡𝐚𝐭 𝐖𝐢𝐥𝐥 𝐃𝐞𝐟𝐢𝐧𝐚𝐭𝐞𝐥𝐲 𝐀𝐦𝐚𝐳𝐞 𝐘𝐨𝐮 😉!
+
 '''
         sendMarkup(start_string, context.bot, update.message, reply_markup)
     else:
-        sendMarkup('Not Authorized user, deploy your own mirror-leech bot', context.bot, update.message, reply_markup)
+        sendMarkup('𝐎𝐨𝐩𝐬! 𝐘𝐨𝐮 𝐚𝐫𝐞 𝐧𝐨𝐭 𝐚𝐥𝐥𝐨𝐰𝐞𝐝 𝐭𝐨 𝐮𝐬𝐞 𝐦𝐞. 🚫', context.bot, update.message, reply_markup)
 
 def restart(update, context):
-    restart_message = sendMessage("Restarting...", context.bot, update.message)
+    restart_message = sendMessage("😐 𝐑𝐞𝐬𝐭𝐚𝐫𝐭𝐢𝐧𝐠, 𝐏𝐥𝐞𝐚𝐬𝐞 𝐰𝐚𝐢𝐭❗", context.bot, update.message)
     if Interval:
         Interval[0].cancel()
     alive.kill()
@@ -94,7 +95,7 @@ def restart(update, context):
 
 def ping(update, context):
     start_time = int(round(time() * 1000))
-    reply = sendMessage("Starting Ping", context.bot, update.message)
+    reply = sendMessage("⛔ 𝐒𝐭𝐚𝐫𝐭𝐢𝐧𝐠 𝐏𝐢𝐧𝐠", context.bot, update.message)
     end_time = int(round(time() * 1000))
     editMessage(f'{end_time - start_time} ms', reply)
 
@@ -172,7 +173,7 @@ help_string_telegraph = f'''<br>
 '''
 
 help = telegraph.create_page(
-        title='Mirror-Leech-Bot Help',
+        title='Probox Mirror Bot',
         content=help_string_telegraph,
     )["path"]
 
@@ -247,13 +248,13 @@ def main():
     if ospath.isfile(".restartmsg"):
         with open(".restartmsg") as f:
             chat_id, msg_id = map(int, f)
-        bot.edit_message_text("Restarted successfully!", chat_id, msg_id)
+        bot.edit_message_text("😎 𝐑𝐞𝐬𝐭𝐚𝐫𝐭𝐞𝐝 𝐬𝐮𝐜𝐜𝐞𝐬𝐬𝐟𝐮𝐥𝐥𝐲❗", chat_id, msg_id)
         osremove(".restartmsg")
     elif AUTHORIZED_CHATS:
         try:
             for i in AUTHORIZED_CHATS:
                 if str(i).startswith('-'):
-                    bot.sendMessage(chat_id=i, text="<b>Bot Started!</b>", parse_mode=ParseMode.HTML)
+                    bot.sendMessage(chat_id=i, text="<b>💥𝐁𝐨𝐭 𝐒𝐭𝐚𝐫𝐭𝐞𝐝❗</b>", parse_mode=ParseMode.HTML)
         except Exception as e:
             LOGGER.warning(e)
 
@@ -274,7 +275,7 @@ def main():
     dispatcher.add_handler(stats_handler)
     dispatcher.add_handler(log_handler)
     updater.start_polling(drop_pending_updates=IGNORE_PENDING_REQUESTS)
-    LOGGER.info("Bot Started!")
+    LOGGER.info("💥𝐁𝐨𝐭 𝐒𝐭𝐚𝐫𝐭𝐞𝐝❗")
     signal.signal(signal.SIGINT, exit_clean_up)
     if rss_session is not None:
         rss_session.start()
