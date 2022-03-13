@@ -57,4 +57,4 @@ class TelegraphHelper:
 			return self.edit_page(path, title, content)
 
 
-telegraph=TelegraphHelper('Tanvir Islam', 'https://github.com/sanjib48/Probox-Mirror-Bot')
+telegraph=TelegraphHelper('Tanvir Islam', 'https://github.com/SanjibSayak/Probox-Mirror-Bot')
