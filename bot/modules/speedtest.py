@@ -8,7 +8,7 @@ from bot.helper.telegram_helper.message_utils import sendMessage, editMessage
 
 
 def speedtest(update, context):
-    speed = sendMessage("Running Speed Test . . . ", context.bot, update.message)
+    speed = sendMessage("𝐑𝐮𝐧𝐧𝐢𝐧𝐠 𝐒𝐩𝐞𝐞𝐝 𝐓𝐞𝐬𝐭 . . . ", context.bot, update.message)
     test = Speedtest()
     test.get_best_server()
     test.download()
@@ -16,23 +16,23 @@ def speedtest(update, context):
     test.results.share()
     result = test.results.dict()
     string_speed = f'''
-<b>Server</b>
-<b>Name:</b> <code>{result['server']['name']}</code>
-<b>Country:</b> <code>{result['server']['country']}, {result['server']['cc']}</code>
-<b>Sponsor:</b> <code>{result['server']['sponsor']}</code>
-<b>ISP:</b> <code>{result['client']['isp']}</code>
+<b>𝐒𝐞𝐫𝐯𝐞𝐫: 𝐏𝐫𝐨𝐛𝐨𝐱 𝐃𝐚𝐭𝐚 𝐍𝐞𝐭𝐰𝐨𝐫𝐤𝐢𝐧𝐠 𝐏𝐫𝐨𝐭𝐨𝐜𝐨𝐥</b>
+<b>𝐍𝐚𝐦𝐞:</b> <code>{result['server']['name']}</code>
+<b>𝐂𝐨𝐮𝐧𝐭𝐫𝐲:</b> <code>{result['server']['country']}, {result['server']['cc']}</code>
+<b>𝐒𝐩𝐨𝐧𝐬𝐨𝐫:</b> <code>{result['server']['sponsor']}</code>
+<b>𝐈𝐒𝐏:</b> <code>{result['client']['isp']}</code>
 
-<b>SpeedTest Results</b>
-<b>Upload:</b> <code>{speed_convert(result['upload'] / 8)}</code>
-<b>Download:</b>  <code>{speed_convert(result['download'] / 8)}</code>
-<b>Ping:</b> <code>{result['ping']} ms</code>
-<b>ISP Rating:</b> <code>{result['client']['isprating']}</code>
+<b>𝐒𝐩𝐞𝐞𝐝𝐓𝐞𝐬𝐭 𝐑𝐞𝐬𝐮𝐥𝐭𝐬</b>
+<b>𝐔𝐩𝐥𝐨𝐚𝐝:</b> <code>{speed_convert(result['upload'] / 8)}</code>
+<b>𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝:</b>  <code>{speed_convert(result['download'] / 8)}</code>
+<b>𝐏𝐢𝐧𝐠:</b> <code>{result['ping']} ms</code>
+<b>𝐈𝐒𝐏 𝐑𝐚𝐭𝐢𝐧𝐠:</b> <code>{result['client']['isprating']}</code>
 '''
     editMessage(string_speed, speed)
 
 
 def speed_convert(size):
-    """Hi human, you can't read bytes?"""
+    """𝐇𝐢 𝐡𝐮𝐦𝐚𝐧, 𝐲𝐨𝐮 𝐜𝐚𝐧'𝐭 𝐫𝐞𝐚𝐝 𝐛𝐲𝐭𝐞𝐬?"""
     power = 2 ** 10
     zero = 0
     units = {0: "", 1: "Kb/s", 2: "MB/s", 3: "Gb/s", 4: "Tb/s"}
