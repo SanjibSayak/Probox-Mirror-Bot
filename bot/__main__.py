@@ -40,7 +40,7 @@ def stats(update, context):
     mem_t = get_readable_file_size(memory.total)
     mem_a = get_readable_file_size(memory.available)
     mem_u = get_readable_file_size(memory.used)
-    stats = f'<b>╭──《🌐 𝐁ᴏᴛ 𝐒ᴛᴀᴛɪ𝐬ᴛɪᴄ𝐬 🌐》</b>\n' \
+    stats = f'<b>╭──《🌐 Bᴏᴛ Sᴛᴀᴛɪsᴛɪᴄs 🌐》</b>\n' \
             f'<b>│</b>\n' \
             f'<b>├  ⏰ Bot Uptime : {currentTime}</b>\n' \
             f'<b>├  💾 Total Disk Space : {total}</b>\n' \
