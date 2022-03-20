@@ -37,7 +37,7 @@ try:
     if len(UPSTREAM_REPO) == 0:
        raise TypeError
 except TypeError:
-    UPSTREAM_REPO = "https://github.com/sanjib48/Probox-Mirror-Bot"
+    UPSTREAM_REPO = "https://github.com/SanjibSayak/Probox-Mirror-Bot"
 try:
     if len(UPSTREAM_BRANCH) == 0:
        raise TypeError
